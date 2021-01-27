@@ -46,7 +46,7 @@
     amountWidget: {
       defaultValue: 1,
       defaultMin: 1,
-      defaultMax: 9,
+      defaultMax: 10,
     }
   };
 
@@ -142,6 +142,15 @@
       });
     }
 
+    initAmountWidget() {
+      const thisProduct = this;
+
+      thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
+      thisProduct.amountWidgetElem.addEventListener('updated', function () {
+        thisProduct.processOrder();
+      });
+    }
+
     processOrder() {
       const thisProduct = this;
       const formData = utils.serializeFormToObject(thisProduct.form);
@@ -178,19 +187,13 @@
               optionImage.classList.remove(classNames.menuProduct.imageVisible);
             }
           }
-
-
+          //thisProduct.priceElem.innerHTML = price;
         }
-        thisProduct.priceElem.innerHTML = price;
+
       }
-
-    }
-
-    initAmountWidget() {
-      const thisProduct = this;
-
-      thisProduct.AmountWidget = new AmountWidget(thisProduct.amountWidgetElem);
-
+      console.log('thisProduct.amountWidget.value');
+      price *= thisProduct.amountWidget.value;
+      thisProduct.priceElem.innerHTML = price;
     }
 
   }
@@ -198,10 +201,11 @@
   class AmountWidget {
     constructor(element) {
       const thisWidget = this;
-      //thisWidget.value = 1;
+      thisWidget.value = settings.amountWidget.defaultValue;
       // console.log('AmountWidget:', AmountWidget);
       // console.log('constructor arguments', element);
       thisWidget.getElements(element);
+      thisWidget.announce();
       thisWidget.setValue(thisWidget.input.value);
       thisWidget.initActions();
     }
@@ -223,12 +227,13 @@
       //console.log('newValue:', newValue);
 
       //TODO: Add validation
-      if (thisWidget.value !== newValue && !isNaN(newValue)) {
+      if (thisWidget.value !== newValue && !isNaN(newValue) && value >= settings.amountWidget.defaultMin && value <= settings.amountWidget.defaultMax) {
+
         thisWidget.value = newValue;
       }
-
+      thisWidget.announce();
       thisWidget.input.value = thisWidget.value;
-      console.log(value);
+
     }
 
     initActions() {
@@ -246,6 +251,13 @@
         event.preventDefault();
         thisWidget.setValue(++thisWidget.input.value)
       });
+    }
+
+    announce() {
+      const thisWidget = this;
+
+      const event = new Event('updated');
+      thisWidget.element.dispatchEvent(event);
     }
 
   }
