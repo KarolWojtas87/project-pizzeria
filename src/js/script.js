@@ -674,7 +674,7 @@
       const thisApp = this;
 
       thisApp.initData();
-      //thisApp.initMenu();
+
       thisApp.initCart();
     },
 
