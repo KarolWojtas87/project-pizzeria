@@ -161,7 +161,7 @@ class Product {
     thisProduct.priceSingle = price;
     //multiply price by amount
     price *= thisProduct.amountWidget.value;
-    thisProduct.priceMulti = price;
+    thisProduct.price = price;
     // update calculated price in the HTML
     thisProduct.priceElem.innerHTML = price;
     //console.log(thisProduct.priceMulti);
@@ -192,51 +192,51 @@ class Product {
     thisProduct.element.dispatchEvent(event);
   }
 
-  // prepareCartProduct() {
-  //   const thisProduct = this;
+  prepareCartProduct() {
+    const thisProduct = this;
 
-  //   const productSummary = {
-  //     id: thisProduct.id,
-  //     name: thisProduct.data.name,
-  //     amount: thisProduct.amountWidget.value,
-  //     priceSingle: thisProduct.priceSingle,
-  //     price: thisProduct.priceMulti,
-  //     params: thisProduct.prepareCartProductParams(),
-  //   };
+    const productSummary = {
+      id: thisProduct.id,
+      name: thisProduct.data.name,
+      amount: thisProduct.amountWidget.value,
+      priceSingle: thisProduct.priceSingle,
+      price: thisProduct.priceMulti,
+      params: thisProduct.prepareCartProductParams(),
+    };
 
-  //   //console.log(productSummary);
+    //console.log(productSummary);
 
-  //   return productSummary;
-  // }
+    return productSummary;
+  }
 
-  // prepareCartProductParams() {
-  //   const thisProduct = this;
-  //   // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
-  //   const formData = utils.serializeFormToObject(thisProduct.form);
-  //   const params = {};
-  //   // for every category (param)...
-  //   for (let paramId in thisProduct.data.params) {
-  //     // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
-  //     const param = thisProduct.data.params[paramId];
-  //     params[paramId] = {
-  //       label: param.label,
-  //       options: {}
-  //     };
-  //     // for every option in this category
-  //     for (let optionId in param.options) {
-  //       // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
-  //       const option = param.options[optionId];
-  //       // check if formData contains optionId
-  //       const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+  prepareCartProductParams() {
+    const thisProduct = this;
+    // covert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
+    const formData = utils.serializeFormToObject(thisProduct.form);
+    const params = {};
+    // for every category (param)...
+    for (let paramId in thisProduct.data.params) {
+      // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
+      const param = thisProduct.data.params[paramId];
+      params[paramId] = {
+        label: param.label,
+        options: {}
+      };
+      // for every option in this category
+      for (let optionId in param.options) {
+        // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
+        const option = param.options[optionId];
+        // check if formData contains optionId
+        const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
-  //       if (optionSelected) {
-  //         params[paramId].options[optionId] = option.label;
-  //       }
-  //     }
-  //   }
-  //   return params;
+        if (optionSelected) {
+          params[paramId].options[optionId] = option.label;
+        }
+      }
+    }
+    return params;
 
-  // }
+  }
 
 }
 

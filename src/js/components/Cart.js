@@ -57,7 +57,7 @@ class Cart {
   }
 
   add(menuProduct) {
-
+    console.log(menuProduct);
     const thisCart = this;
     const generatedHTML = templates.cartProduct(menuProduct);
     const generatedDOM = utils.createDOMFromHTML(generatedHTML);
@@ -65,6 +65,7 @@ class Cart {
     thisCart.dom.productList.appendChild(generatedDOM);
     //console.log('adding product', menuProduct);
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
+    console.log(thisCart.products);
     thisCart.update();
 
   }
@@ -91,6 +92,7 @@ class Cart {
     }
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
     thisCart.dom.deliveryFee.innerHTML = thisCart.deliveryFee;
+
   }
 
   remove(cartProduct) {
