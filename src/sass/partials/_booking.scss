@@ -171,8 +171,13 @@
         background: $color-dark;
         opacity: 0.4;
       }
-
     }
+
+    &.selected {
+      background-color: darkgreen;
+      border: red;
+    }
+
   }
 
   [data-table="1"] {
