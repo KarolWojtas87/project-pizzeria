@@ -1,0 +1,195 @@
+.home-container {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+  max-width: 700px;
+}
+
+.sub-pages {
+  display: flex;
+
+  .order-page {
+
+    h2 {
+      font-family: $font-header;
+      font-size: 28px;
+      padding: 0;
+      margin-top: 12px;
+      transform: translate(0, 10px);
+      transition: transform 0.5s;
+    }
+
+    p {
+      visibility: hidden;
+      font-family: $font-text;
+      transform: translate(0, 10px);
+      transition: transform 0.5s;
+      font-size: 12px;
+
+    }
+
+    &:hover{
+      p {
+        visibility: visible;
+        transform: translate(0, -4px);
+      }
+
+      h2 {
+        transform: translate(0, -4px);
+      }
+    }
+  }
+
+  .booking-page {
+
+    h2 {
+      font-family: $font-header;
+      font-size: 28px;
+      padding: 0;
+      margin-top: 12px;
+      transform: translate(0, 10px);
+      transition: transform 0.5s;
+    }
+
+    p {
+      visibility: hidden;
+      font-family: $font-text;
+      transform: translate(0, 10px);
+      transition: transform 0.5s;
+      font-size: 12px;
+    }
+
+    &:hover{
+      p {
+        visibility: visible;
+        transform: translate(0, -4px);
+      }
+
+      h2 {
+        transform: translate(0, -4px);
+      }
+    }
+  }
+
+}
+
+.top-container {
+  margin: ($base-size) auto ($base-size * 6) auto;
+}
+
+.order-page {
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  background-image: url(../images/gallery/gallery-7.jpg);
+  width: 49%;
+  color: #fff;
+  border-radius: $radius;
+  margin-right: auto;
+  text-align: center;
+  height: 100px;
+}
+
+.booking-page {
+  font-family: "Oswald", sans-serif;
+  font-size: 18px;
+  background-image: url(../images/gallery/gallery-6.jpg);
+  width: 49%;
+  color: #fff;
+  border-radius: $radius;
+  margin-left: auto;
+  text-align: center;
+  height: 100px;
+}
+
+.opening-hours {
+  font-family: "Oswald", sans-serif;
+  background-color: #ff6b6b;
+  border-radius: $radius;
+  text-align: center;
+  text-transform: uppercase;
+  margin: ($base-size) auto;
+  color: #fff;
+  font-size: 18px;
+  padding: 8px;
+
+}
+
+.carousel-cell{
+  width: 608px;
+  height: 230px;
+  display: flex;
+  font-size: 14px;
+
+  .carousel-text {
+    display: block;
+    margin: 0 10px;
+    font-family: $font-text;
+  }
+}
+
+.bottom-container {
+  margin-top: 100px;
+}
+
+.row {
+  display: flex;
+  img {
+    height: 140px;
+    width: 98%;
+    position: relative;
+  }
+}
+
+.image-gallery {
+  display: flex;
+  position: relative;
+  margin: 4px 4px;
+  padding: 0 auto;
+
+  &:hover {
+    opacity: 0.7;
+
+    i {
+      visibility: visible;
+    }
+  }
+
+  .gallery-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 150px;
+    width: 200px;
+    visibility: hidden;
+  }
+
+  i {
+    font-size: 28px;
+    color: $color-main;
+    padding: 4px;
+
+    &:hover {
+      font-size: 42px;
+      color: $color-danger;
+    }
+  }
+
+}
+
+.footer a {
+  color: $color-main;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+

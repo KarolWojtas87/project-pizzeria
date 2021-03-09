@@ -10,6 +10,7 @@
     rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -24,6 +25,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
+          <a href="#home">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -65,6 +67,9 @@
   </header>
 
   <div id="pages">
+    <section id="home">
+      <div class="my-slider container"></div>
+    </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
     </section>
@@ -72,6 +77,114 @@
       <div class="booking-wrapper container"></div>
     </section>
   </div>
+
+  <div id="template-home" type="text/x-handlebars-template">
+    <div class="home-container">
+
+      <div class="top-container">
+        <div class="sub-pages">
+          <div class="order-page">
+            <h2>ORDER ONLINE</h2>
+            <p>Lorem ipsum lorem ipsum lorem ipsum</p>
+          </div>
+          <div class="booking-page">
+            <h2>BOOK A TABLE</h2>
+            <p>Lorem ipsum lorem ipsum lorem ipsum</p>
+          </div>
+        </div>
+        <div class="opening-hours">
+          <h2>OPENING HOURS:</h3>
+            <p>TUE-SUN, 12-24</p>
+        </div>
+      </div>
+
+      <div class="main-carousel data-flickity"
+        data-flickity='{ "cellAlign": "left", "contain": true, "autoPlay": true }'>
+        <div class="carousel-cell">
+          <img src="./images/carousel/carousel-1.jpg" class="carousel-photo" alt="Picture">
+          <div class="carousel-text">
+            <h2>Delicious Food</h2>
+            <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+            <p>-Lorem ipsum</p>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <img src="./images/carousel/carousel-2.jpg" class="carousel-photo" alt="Picture">
+          <div class="carousel-text">
+            <h2>Delicious Food</h2>
+            <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+            <p>-Lorem ipsum</p>
+          </div>
+        </div>
+        <div class="carousel-cell">
+          <img src="./images/carousel/carousel-3.jpg" class="carousel-photo" alt="Picture">
+          <div class="carousel-text">
+            <h2>Delicious Food</h2>
+            <p>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+            <p>-Lorem ipsum</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="bottom-container">
+        <div class="row">
+          <div class="image-gallery">
+            <img src="images/gallery/gallery-1.jpg" alt="Photo">
+            <div class="gallery-icons">
+              <a href="#"><i class="icon fas fa-heart heart"></i></a>
+              <a href="#"><i class="icon fas fa-share-alt share"></i></a>
+            </div>
+          </div>
+          <div class="image-gallery">
+            <img src="images/gallery/gallery-2.jpg" alt="Photo">
+            <div class="gallery-icons">
+              <a href="#"><i class="icon fas fa-heart heart"></i></a>
+              <a href="#"><i class="icon fas fa-share-alt share"></i></a>
+            </div>
+          </div>
+          <div class="image-gallery">
+            <img src="images/gallery/gallery-3.jpg" alt="Photo">
+            <div class="gallery-icons">
+              <a href="#"><i class="icon fas fa-heart heart"></i></a>
+              <a href="#"><i class="icon fas fa-share-alt share"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="image-gallery">
+            <img src="images/gallery/gallery-4.jpg" alt="Photo">
+            <div class="gallery-icons">
+              <a href="#"><i class="icon fas fa-heart heart"></i></a>
+              <a href="#"><i class="icon fas fa-share-alt share"></i></a>
+            </div>
+          </div>
+          <div class="image-gallery">
+            <img src="images/gallery/gallery-5.jpg" alt="Photo">
+            <div class="gallery-icons">
+              <a href="#"><i class="icon fas fa-heart heart"></i></a>
+              <a href="#"><i class="icon fas fa-share-alt share"></i></a>
+            </div>
+          </div>
+          <div class="image-gallery">
+            <img src="images/gallery/gallery-6.jpg" alt="Photo">
+            <div class="gallery-icons">
+              <a href="#"><i class="icon fas fa-heart heart"></i></a>
+              <a href="#"><i class="icon fas fa-share-alt share"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer">
+        <a href="#">View more on Instagram</a>
+      </div>
+
+    </div>
+  </div>
+
+
 
   <script id="template-booking-widget" type="text/x-handlebars-template">
     <div class="booking-widget">
@@ -245,7 +358,7 @@
 
       </article> <!-- .product -->
     </script>
-
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.min.js"></script>
